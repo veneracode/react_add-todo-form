@@ -33,7 +33,7 @@ export const App = () => {
 
   const [title, setTitle] = useState('');
   const [userId, setUserId] = useState(0);
-  const [titleEror, setTitleEror] = useState(false);
+  const [titleError, setTitleError] = useState(false);
   const [todoList, setTodoList] = useState(todos);
 
   const addTodo = (newTodo: Todo) => {
@@ -44,14 +44,14 @@ export const App = () => {
     const value = event.target.value;
 
     setTitle(value);
-    setTitleEror(value.trim() === '');
+    setTitleError(value.trim() === '');
   }
 
   const handleSumbit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!title.trim()) {
-      setTitleEror(true);
+    if (!title.trim() && userId !== 0) {
+      setTitleError(true);
 
       return;
     }
@@ -86,7 +86,7 @@ export const App = () => {
           onChange={handleTitleChange}
           placeholder="Enter a title"
           />
-          {titleEror && <span className="error">Please enter a title</span>}
+          {titleError && <span className="error">Please enter a title</span>}
         </div>
 
         <div className="field">

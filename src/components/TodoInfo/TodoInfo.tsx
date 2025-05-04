@@ -17,7 +17,7 @@ interface TodoInfo {
 export const TodoInfo = ({todo}: {todo: TodoInfo}) => {
 return (
   <article
-  data-id = "1"
+  data-id = {todo.id}
   className = {`TodoInfo ${todo.completed ? 'TodoInfo--completed' : ''}`}>
     <h2
     className = "TodoInfo__title">
