@@ -47,10 +47,10 @@ export const App = () => {
     setTitleError(value.trim() === '');
   }
 
-  const handleSumbit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!title.trim() && userId !== 0) {
+    if (!title.trim() && userId === 0) {
       setTitleError(true);
 
       return;
@@ -76,7 +76,7 @@ export const App = () => {
       <form
       action="/api/todos"
       method="POST"
-      onSubmit={handleSumbit}
+      onSubmit={handleSubmit}
       >
         <div className="field">
           <input
